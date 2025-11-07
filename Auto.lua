@@ -14,7 +14,7 @@ frame.BorderSizePixel = 0
 frame.Parent = gui
 
 local vnLabel = Instance.new("TextLabel")
-vnLabel.Text = "VN : vào discord tôi để lấy script auto dupe candy nha"
+vnLabel.Text = "VN : vào discord tôi để lấy script"
 vnLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 vnLabel.BackgroundTransparency = 1
 vnLabel.Font = Enum.Font.GothamBold
@@ -24,7 +24,7 @@ vnLabel.Position = UDim2.new(0.05, 0, 0.35, 0)
 vnLabel.Parent = frame
 
 local enLabel = Instance.new("TextLabel")
-enLabel.Text = "EN : join my discord to get the auto dupe candy script"
+enLabel.Text = "EN : join my discord to get the script"
 enLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
 enLabel.BackgroundTransparency = 1
 enLabel.Font = Enum.Font.Gotham
