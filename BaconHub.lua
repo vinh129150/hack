@@ -2,7 +2,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/vinh129150/hack/refs/
 
 local place = tostring(game.PlaceId)
 local scripts = {
-    ["121864768012064"] = "https://pandadevelopment.net/virtual/file/bace1afeed77bc02",
+    ["121864768012064"] = "https://pandadevelopment.net/virtual/file/6a614650ced8a630",
     ["79546208627805"]  = "https://pandadevelopment.net/virtual/file/9549bc1ad813b8a0",
     ["126509999114328"] = "https://pandadevelopment.net/virtual/file/9549bc1ad813b8a0",
     ["127742093697776"] = "https://pandadevelopment.net/virtual/file/c65ad726b975c46d",
