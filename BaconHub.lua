@@ -7,6 +7,7 @@ local scripts = {
     ["126509999114328"] = "https://pandadevelopment.net/virtual/file/9549bc1ad813b8a0",
     ["127742093697776"] = "https://pandadevelopment.net/virtual/file/c65ad726b975c46d",
     ["122826953758426"] = "https://pandadevelopment.net/virtual/file/1976a3c45688896b",
+    ["80469437125309"] = "https://pandadevelopment.net/virtual/file/6bd1b975f21d30dc",
 }
 local url = scripts[place]
 if not url then return end
