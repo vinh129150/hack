@@ -34,7 +34,7 @@ enLabel.Position = UDim2.new(0.05, 0, 0.45, 0)
 enLabel.Parent = frame
 
 local linkBox = Instance.new("TextBox")
-linkBox.Text = "https://discord.gg/YwAbjsqnR5"
+linkBox.Text = "https://discord.gg/g48rVb53tj"
 linkBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 linkBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 linkBox.BorderColor3 = Color3.fromRGB(70, 70, 70)
