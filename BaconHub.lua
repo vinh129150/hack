@@ -3,4 +3,8 @@ local Games = {
     [7671049560] = "https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Fishit.lua",
 }
 
-return Games
+local URL = Games[game.GameId]
+
+if URL then
+    loadstring(game:HttpGet(URL))()
+end
