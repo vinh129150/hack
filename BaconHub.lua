@@ -1,6 +1,6 @@
 local Games = {
-    ["7671049560"] = "https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Theforge.lua",
-    ["6701277882"] = "https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Fishit.lua",
+    ["76558904092080"] = "https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Theforge.lua",
+    ["121864768012064"] = "https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Fishit.lua",
 }
 
 
