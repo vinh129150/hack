@@ -145,7 +145,6 @@
 `;
     document.body.appendChild(overlay);
 
-    const captchaSection = overlay.querySelector("#bh-iframe-wrap").parentElement;
     const iframeWrap = document.getElementById("bh-iframe-wrap");
     const statusEl = document.getElementById("bh-status");
     const statusText = document.getElementById("bh-status-text");
@@ -164,12 +163,20 @@
         captchaLabel.classList.add("hidden");
         statusEl.style.display = "flex";
 
+        let dots = 0;
+        const dotTimer = setInterval(() => {
+            dots = (dots + 1) % 4;
+            statusText.textContent = "Bypassing link" + ".".repeat(dots);
+        }, 500);
+
         GM_xmlhttpRequest({
             method: "POST",
             url: MY_API,
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({ url: location.href, token }),
+            timeout: 90000,
             onload: function (res) {
+                clearInterval(dotTimer);
                 try {
                     const data = JSON.parse(res.responseText);
                     if (data.status === "success") {
@@ -190,9 +197,14 @@
                     showError("Parse error: " + e.message);
                 }
             },
-            onerror: function () { showError("Request failed"); },
-            ontimeout: function () { showError("Request timed out"); },
-            timeout: 20000
+            onerror: function () {
+                clearInterval(dotTimer);
+                showError("Request failed");
+            },
+            ontimeout: function () {
+                clearInterval(dotTimer);
+                showError("Request timed out");
+            }
         });
     }
 
