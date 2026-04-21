@@ -52,8 +52,8 @@
 // @icon          https://i.ibb.co/LDjBMqVf/1769213061522-removebg-preview.png
 // @grant         GM_xmlhttpRequest
 // @connect       tranvinh.site
-// @downloadURL   https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Userscript.js
-// @updateURL     https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Userscript.js
+// @downloadURL   https://github.com/ron12373/userscript/raw/main/free.user.js
+// @updateURL     https://github.com/ron12373/userscript/raw/main/free.user.js
 // ==/UserScript==
 
 (function () {
@@ -61,15 +61,6 @@
 
     const MY_API = "https://tranvinh.site/api/bypass/skibidi/baconhub/userscript";
     const CF_IFRAME = "https://tranvinh.site/load-cf";
-
-    const redirectDomains = [
-        "linkvertise.com","direct-link.net","link-hub.net",
-        "link-target.net","link-center.net","link-to.net"
-    ];
-
-    function shouldRedirect() {
-        return redirectDomains.some(d => location.hostname.includes(d));
-    }
 
     const style = document.createElement("style");
     style.innerHTML = `
@@ -87,25 +78,22 @@
 #bh-inner{padding:28px 28px 24px}
 #bh-header{display:flex;align-items:center;gap:14px;margin-bottom:22px}
 #bh-logo-img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(120,60,255,0.6))}
-#bh-title-wrap{}
 #bh-title{font-size:22px;font-weight:700;color:#fff;letter-spacing:1px;line-height:1}
 #bh-version{font-size:11px;color:rgba(120,60,255,0.8);letter-spacing:2px;margin-top:3px}
 #bh-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,60,255,0.4),transparent);margin-bottom:20px}
 #bh-urlbox{background:rgba(120,60,255,0.06);border:1px solid rgba(120,60,255,0.2);border-radius:10px;padding:10px 14px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
-#bh-url-icon{color:rgba(120,60,255,0.7);font-size:14px;flex-shrink:0}
 #bh-url-text{font-size:11px;color:rgba(255,255,255,0.35);word-break:break-all;font-family:monospace;line-height:1.4}
-#bh-captcha-section{margin-bottom:18px}
 #bh-captcha-label{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
 #bh-iframe-wrap{background:rgba(0,0,0,0.4);border:1px solid rgba(120,60,255,0.2);border-radius:12px;padding:12px;display:flex;justify-content:center}
 #bh-iframe{width:305px;height:65px;border:none;border-radius:8px;display:block}
-#bh-status{display:none;align-items:center;justify-content:center;gap:10px;padding:14px;background:rgba(120,60,255,0.08);border:1px solid rgba(120,60,255,0.2);border-radius:12px;margin-bottom:10px}
+#bh-status{display:none;align-items:center;justify-content:center;gap:10px;padding:14px;background:rgba(120,60,255,0.08);border:1px solid rgba(120,60,255,0.2);border-radius:12px;margin-top:16px}
 .bh-spinner{width:16px;height:16px;border:2px solid rgba(120,60,255,0.3);border-top:2px solid #7c3aed;border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
 #bh-status-text{font-size:14px;color:#a78bfa;font-weight:600;letter-spacing:.5px}
-#bh-result{display:none;padding:14px 16px;border-radius:12px;font-size:13px;word-break:break-word;white-space:pre-wrap;max-height:180px;overflow-y:auto;line-height:1.5}
+#bh-result{display:none;padding:14px 16px;border-radius:12px;font-size:13px;word-break:break-word;white-space:pre-wrap;max-height:180px;overflow-y:auto;line-height:1.5;margin-top:16px}
 .bh-success{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7}
 .bh-error{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);color:#fca5a5}
-#bh-footer{padding:12px 28px;background:rgba(0,0,0,0.3);border-top:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between}
+#bh-footer{padding:12px 28px;background:rgba(0,0,0,0.3);border-top:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;margin-top:20px}
 #bh-footer-left{font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:1.5px}
 #bh-footer-right{display:flex;align-items:center;gap:6px}
 .bh-dot{width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;animation:pulse 2s ease-in-out infinite}
@@ -127,21 +115,18 @@
   <div id="bh-inner">
     <div id="bh-header">
       <img id="bh-logo-img" src="https://i.ibb.co/LDjBMqVf/1769213061522-removebg-preview.png">
-      <div id="bh-title-wrap">
+      <div>
         <div id="bh-title">BACONHUB</div>
         <div id="bh-version">BYPASS ENGINE v2.0</div>
       </div>
     </div>
     <div id="bh-divider"></div>
     <div id="bh-urlbox">
-      <div id="bh-url-icon">🔗</div>
       <div id="bh-url-text">${location.href}</div>
     </div>
-    <div id="bh-captcha-section">
-      <div id="bh-captcha-label">Security Verification</div>
-      <div id="bh-iframe-wrap">
-        <iframe id="bh-iframe" src="${CF_IFRAME}" scrolling="no"></iframe>
-      </div>
+    <div id="bh-captcha-label">Security Verification</div>
+    <div id="bh-iframe-wrap">
+      <iframe id="bh-iframe" src="${CF_IFRAME}" scrolling="no"></iframe>
     </div>
     <div id="bh-status">
       <div class="bh-spinner"></div>
@@ -160,11 +145,12 @@
 `;
     document.body.appendChild(overlay);
 
+    const captchaSection = overlay.querySelector("#bh-iframe-wrap").parentElement;
     const iframeWrap = document.getElementById("bh-iframe-wrap");
-    const captchaSection = document.getElementById("bh-captcha-section");
     const statusEl = document.getElementById("bh-status");
     const statusText = document.getElementById("bh-status-text");
     const resultEl = document.getElementById("bh-result");
+    const captchaLabel = document.getElementById("bh-captcha-label");
 
     function showError(msg) {
         statusEl.style.display = "none";
@@ -174,7 +160,8 @@
     }
 
     function sendToApi(token) {
-        captchaSection.classList.add("hidden");
+        iframeWrap.classList.add("hidden");
+        captchaLabel.classList.add("hidden");
         statusEl.style.display = "flex";
 
         GM_xmlhttpRequest({
@@ -187,20 +174,11 @@
                     const data = JSON.parse(res.responseText);
                     if (data.status === "success") {
                         const result = data.result;
-
-                        if (result.startsWith("http") && shouldRedirect()) {
-                            statusText.textContent = "Redirecting...";
-                            const encoded = btoa(result);
-                            location.href = "https://linkvertise.com/access/1229176/kiciahook-kiciahook?hash=" + encoded;
-                            return;
-                        }
-
                         if (result.startsWith("http")) {
                             statusText.textContent = "Redirecting...";
                             setTimeout(() => { location.href = result; }, 600);
                             return;
                         }
-
                         statusEl.style.display = "none";
                         resultEl.style.display = "block";
                         resultEl.className = "bh-success";
