@@ -52,8 +52,8 @@
 // @icon          https://i.ibb.co/LDjBMqVf/1769213061522-removebg-preview.png
 // @grant         GM_xmlhttpRequest
 // @connect       userscript.tranvinh.site
-// @downloadURL   https://github.com/ron12373/userscript/raw/main/free.user.js
-// @updateURL     https://github.com/ron12373/userscript/raw/main/free.user.js
+// @downloadURL   https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Userscript.js
+// @updateURL     https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/Userscript.js
 // ==/UserScript==
 
 (function () {
