@@ -14,7 +14,7 @@ local data = {
 }
 
 request({
-    Url = "https://xhider.xyz/webhook/proxy/tolaexecutor",
+    Url = "https://xhider.xyz/webhook/proxy/tolaexecutor-866",
     Method = "POST",
     Headers = {
         ["Content-Type"] = "application/json"
